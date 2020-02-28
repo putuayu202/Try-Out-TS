@@ -14,7 +14,7 @@ class AuthController extends Controller
         $user = User::create([
             'nis'    => $request->nis,
             'nama'    => $request->nama,
-            'kelas'    => $request->kelas,
+            'jurusan'    => $request->jurusan,
             'password'    => $request->password,
          ]);
         $token = auth()->login($user);

@@ -7,6 +7,7 @@ $api->version('v1', function($api){
     $api->get('/user', function(){
         return Auth::user();
     });
+    $api->post('/logout' , 'App\Http\Controllers\AuthController@logout');
 
     $api->post('/createtoken', 'App\Http\Controllers\TokenController@createtoken');
     $api->get('/token/{token}', 'App\Http\Controllers\TokenController@token');
