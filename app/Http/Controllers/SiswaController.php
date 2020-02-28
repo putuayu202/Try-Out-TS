@@ -12,7 +12,7 @@ class SiswaController extends Controller
         $siswa = Siswa::create([
             'nis'    => $request->nis,
             'nama'    => $request->nama,
-            'kelas'    => $request->kelas,
+            'jurusan'    => $request->jurusan,
             'password'    => $request->password,
         ]);
         $token = auth()->login($siswa);
@@ -27,6 +27,7 @@ class SiswaController extends Controller
         }
         return $this->respondWithToken($token);
     }
+    
 
 
 }
