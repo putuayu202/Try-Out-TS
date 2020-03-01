@@ -13,5 +13,5 @@ $api->version('v1', function($api){
     $api->get('/token/{token}', 'App\Http\Controllers\TokenController@token');
 
     $api->post('/createsoal', 'App\Http\Controllers\SoalController@createsoal');
-    $api->get('/soal/{category}', 'App\Http\Controllers\SoalController@soal');
+    $api->get('/soal/{token}', 'App\Http\Controllers\SoalController@soal');
 });
