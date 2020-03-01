@@ -34,8 +34,8 @@ class TokenController extends Controller
     
     public function token($token){
         try {
-            $soal = Soal::where('token',$token)->firstOrFail();
-            return Soal::where('token',$token)->get()->toArray();
+            $soal = Token::where('token',$token)->firstOrFail();
+            return Token::where('token',$token)->get()->toArray();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             $soal = json_encode(['error' => 'Tidak Ada Hasil']);
             return $soal;
