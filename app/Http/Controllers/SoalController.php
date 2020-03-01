@@ -21,9 +21,13 @@ class SoalController extends Controller
 
     public function soal($token){
         try {
-            return Soal::where('token',$token)->firstOrFail();
+            $soal = Soal::where('token',$token)->firstOrFail();
+            return Soal::where('token',$token)->get()->toArray();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            return json_encode(['error' => 'No query results for model']);
+            $soal = json_encode(['error' => 'Tidak Ada Hasil']);
+            return $soal;
         }
+
+        
     }
 }
