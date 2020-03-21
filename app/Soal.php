@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Soal extends Model
 {
     protected $fillable = [
-        'category', 'question','correct_answer','incorrect_answers', 'token',
+        'category', 'question','correct_answer','answer_1', 'answer_2', 'answer_3', 'token',
     ];
 
     protected $casts = [

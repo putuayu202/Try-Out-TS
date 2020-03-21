@@ -4,9 +4,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function($api){
     $api->post('/login' , 'App\Http\Controllers\AuthController@login');
     $api->post('/register' , 'App\Http\Controllers\AuthController@register');
-    $api->get('/user', function(){
-        return Auth::user();
-    });
+    $api->get('/user', 'App\Http\Controllers\AuthController@show');
     $api->post('/logout' , 'App\Http\Controllers\AuthController@logout');
 
     $api->post('/createtoken', 'App\Http\Controllers\TokenController@createtoken');
@@ -14,4 +12,6 @@ $api->version('v1', function($api){
 
     $api->post('/createsoal', 'App\Http\Controllers\SoalController@createsoal');
     $api->get('/soal/{token}', 'App\Http\Controllers\SoalController@soal');
+    $api->get('/jawabans', 'App\Http\Controllers\SoalController@jawabans');
+
 });

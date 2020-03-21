@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\User;
+use Auth;
 use JWTFactory;
 use JWTAuth;
 use Validator;
@@ -22,6 +23,7 @@ class AuthController extends Controller
     }
     public function login()
     {
+        
         $credentials = request(['nis', 'password']);
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -29,9 +31,18 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function show($nis)
+    public function show()
     {
-        return User::where('nis', $nis)->get();
+        $active = Auth::user();
+        
+        if($active->active = true)
+        {
+            return response()->json(['error' => 'Unauthorized'], 401);            
+        }
+        
+        $active->active = true;
+        $active->save();
+        return $active;
     }
     
     public function logout()

@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/guru/inputsoal','SoalBladeController@inputsoal');
+Route::get('/soal','SoalBladeController@showsoal');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

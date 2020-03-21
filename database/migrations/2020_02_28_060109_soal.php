@@ -18,7 +18,9 @@ class Soal extends Migration
             $table->string('category');
             $table->string('question');
             $table->string('correct_answer');
-            $table->json('incorrect_answers');
+            $table->json('answer_1');
+            $table->json('answer_2');
+            $table->json('answer_3');
             $table->string('token');
             $table->timestamps();
         });

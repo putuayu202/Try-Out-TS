@@ -13,7 +13,9 @@ class SoalController extends Controller
             'category'    => $request->category,
             'question'    => $request->question,
             'correct_answer'    => $request->correct_answer,
-            'incorrect_answers'    => $request->incorrect_answers,
+            'answer_1'    => $request->answer_1,
+            'answer_2'    => $request->answer_2,
+            'answer_3'    => $request->answer_3,
             'token' => $request->token
         ]);
         return $soal;
@@ -27,7 +29,14 @@ class SoalController extends Controller
             $soal = json_encode(['error' => 'Tidak Ada Hasil']);
             return $soal;
         }
+    }
 
-        
+    public function jawabans(){
+        $jawabans = Soal::select('incorrect_answers')->get();
+        foreach ($jawabans as $memu) {
+            echo $memu['incorrect_answers'];
+        }
+        $jawabana = $memu[2];
+        return $jawabana;
     }
 }
