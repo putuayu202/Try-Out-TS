@@ -21,6 +21,7 @@ class Soal extends Migration
             $table->json('answer_1');
             $table->json('answer_2');
             $table->json('answer_3');
+            $table->json('answer_4');
             $table->string('token');
             $table->timestamps();
         });

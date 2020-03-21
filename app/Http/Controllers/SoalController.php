@@ -16,6 +16,7 @@ class SoalController extends Controller
             'answer_1'    => $request->answer_1,
             'answer_2'    => $request->answer_2,
             'answer_3'    => $request->answer_3,
+            'answer_4'    => $request->answer_4,
             'token' => $request->token
         ]);
         return $soal;
