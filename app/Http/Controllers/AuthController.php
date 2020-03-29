@@ -35,14 +35,7 @@ class AuthController extends Controller
     {
         $active = Auth::user();
         
-        if($active->active = true)
-        {
-            return response()->json(['error' => 'Unauthorized'], 401);            
-        }
-        
-        $active->active = true;
-        $active->save();
-        return $active;
+        return response()->json(['error' => 'Unauthorized'], 401);            
     }
     
     public function logout()
